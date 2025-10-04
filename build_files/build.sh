@@ -22,6 +22,15 @@ major_version=$(echo $kernel_version | cut -d '.' -f1)
 minor_version=$(echo $kernel_version | cut -d '.' -f2)
 major_minor=${major_version}${minor_version}
 
+cur_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+build_dir='build'
+patch_dir="$cur_dir/patch_cirrus"
+hda_dir="$cur_dir/$build_dir/hda"
+update_dir="/lib/modules/${UNAME}/updates"
+
+[[ -d $hda_dir ]] && rm -rf $hda_dir
+[[ ! -d $build_dir ]] && mkdir $build_dir
+
 	# attempt to download linux-x.x.x.tar.xz kernel
 wget -c https://cdn.kernel.org/pub/linux/kernel/v$major_version.x/linux-$kernel_version.tar.xz -P $build_dir
 
