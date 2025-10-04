@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y gcc kernel-devel make patch wget
+dnf5 install -y gcc kernel-devel make patch wget kernel-headers
 
 git clone https://github.com/davidjo/snd_hda_macbookpro.git
 cd snd_hda_macbookpro/
