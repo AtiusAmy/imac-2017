@@ -16,6 +16,11 @@ git clone https://github.com/davidjo/snd_hda_macbookpro.git
 cd snd_hda_macbookpro/
 #run the following command as root or with sudo
 set +e
+UNAME=${1:-$(uname -r)}
+kernel_version=$(echo $UNAME | cut -d '-' -f1)  #ie 5.2.7
+major_version=$(echo $kernel_version | cut -d '.' -f1)
+minor_version=$(echo $kernel_version | cut -d '.' -f2)
+major_minor=${major_version}${minor_version}
 
 	# attempt to download linux-x.x.x.tar.xz kernel
 wget -c https://cdn.kernel.org/pub/linux/kernel/v$major_version.x/linux-$kernel_version.tar.xz -P $build_dir
