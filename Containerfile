@@ -4,6 +4,9 @@ COPY build_files /
 
 # Base Image
 FROM ghcr.io/atiusamy/bluefin-stable:latest
+ARG KERNEL="6.16.9-200.fc42.x86_64"
+
+COPY driver_files /lib/modules/${KERNEL}
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
