@@ -18,6 +18,6 @@ dnf5 install -y gcc kernel-devel make patch wget kernel-headers tar
 
 #### Example for enabling a System Unit File
 
-depmod -a
+depmod ${KERNEL}
 
 
