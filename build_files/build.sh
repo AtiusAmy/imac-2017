@@ -9,13 +9,13 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-dnf5 -y copr enable mulderje/facetimehd-kmod 
+dnf5 -y copr enable mulderje/intel-mac-rpms
 # this installs a package from fedora repos
 dnf5 install -y gcc kernel-devel make wget kernel-headers tar facetimehd-kmod
 # install the kernel headers
 
 # dnf5 -y copr disable ublue-os/staging
-dnf5 -y copr disable mulderje/facetimehd-kmod 
+dnf5 -y copr disable mulderje/intel-mac-rpms
 #### Example for enabling a System Unit File
 
 depmod ${KERNEL}
