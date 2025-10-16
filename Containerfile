@@ -4,7 +4,7 @@ COPY build_files /
 
 # Base Image
 FROM ghcr.io/atiusamy/bluefin-stable:latest
-ARG KERNEL="6.16.7-200.fc42.x86_64"
+ARG KERNEL="6.16.8-200.fc42.x86_64"
 
 COPY driver_files /lib/modules/${KERNEL}
 
