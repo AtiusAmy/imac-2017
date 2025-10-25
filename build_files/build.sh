@@ -11,7 +11,7 @@ set -ouex pipefail
 
 dnf5 -y copr enable mulderje/intel-mac-rpms
 # this installs a package from fedora repos
-dnf5 install -y gcc kernel-devel make wget kernel-headers tar facetimehd-kmod
+dnf5 install -y gcc kernel-devel make wget kernel-headers tar facetimehd-kmod sassc glib2-devel
 # install the kernel headers
 
 # dnf5 -y copr disable ublue-os/staging
