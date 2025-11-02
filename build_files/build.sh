@@ -11,7 +11,7 @@ set -ouex pipefail
 
 KERNEL=$(skopeo inspect --retry-times 3 docker://ghcr.io/atiusamy/bluefin-stable:latest | jq -r '.Labels["ostree.linux"]')
 
-mv -v /etc/driver_files/{*,.[!.]*} /lib/modules/${KERNEL}
+mv -v /etc/driver_files/* /lib/modules/${KERNEL}
 rm -rf /etc/driver_files
 
 dnf5 -y copr enable mulderje/intel-mac-rpms
