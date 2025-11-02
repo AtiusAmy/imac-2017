@@ -9,6 +9,11 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+KERNEL=$(skopeo inspect --retry-times 3 docker://ghcr.io/atiusamy/bluefin-stable:latest | jq -r '.Labels["ostree.linux"]')
+
+mv -v /etc/driver_files/{*,.[!.]*} /lib/modules/${KERNEL}
+rm -rf /etc/driver_files
+
 dnf5 -y copr enable mulderje/intel-mac-rpms
 # this installs a package from fedora repos
 dnf5 install -y gcc kernel-devel make wget kernel-headers tar facetimehd-kmod sassc glib2-devel
