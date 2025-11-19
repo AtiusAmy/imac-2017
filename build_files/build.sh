@@ -14,13 +14,9 @@ KERNEL=$(skopeo inspect --retry-times 3 docker://ghcr.io/atiusamy/bluefin-stable
 mv -v /etc/driver_files/* /lib/modules/${KERNEL}
 rm -rf /etc/driver_files
 
-dnf5 -y copr enable mulderje/intel-mac-rpms
-# this installs a package from fedora repos
-dnf5 install -y facetimehd-kmod sassc glib2-devel
 # install the kernel headers
 
 # dnf5 -y copr disable ublue-os/staging
-dnf5 -y copr disable mulderje/intel-mac-rpms
 #### Example for enabling a System Unit File
 
 depmod ${KERNEL}
