@@ -11,11 +11,13 @@ set -ouex pipefail
 
 KERNEL=$(skopeo inspect --retry-times 3 docker://ghcr.io/atiusamy/bluefin-stable:latest | jq -r '.Labels["ostree.linux"]')
 
-mv -v /etc/driver_files/* /lib/modules/${KERNEL}
+dnf5 install -y gcc kernel-devel make patch wget
+
+/bin/bash /etc/driver_files/snd_hda_macbookpro/install.cirrus.driver.sh
+
 rm -rf /etc/driver_files
 
 # install the kernel headers
-dnf install -y gcc kernel-devel make patch wget
 
 # dnf5 -y copr disable ublue-os/staging
 #### Example for enabling a System Unit File
