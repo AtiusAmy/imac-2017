@@ -11,6 +11,7 @@ set -ouex pipefail
 
 KERNEL=$(skopeo inspect --retry-times 3 docker://ghcr.io/atiusamy/bluefin-stable:latest | jq -r '.Labels["ostree.linux"]')
 
+ls /etc/driver_files
 dnf5 install -y gcc kernel-devel make patch wget
 
 /bin/bash /etc/driver_files/snd_hda_macbookpro/install.cirrus.driver.sh
