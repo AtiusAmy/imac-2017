@@ -5,7 +5,7 @@ COPY build_files /
 # Base Image
 FROM ghcr.io/atiusamy/bluefin-stable:latest
 
-COPY snd_hda_macbookpro /etc/driver_files
+COPY snd_hda_macbookpro /etc/snd_hda_macbookpro
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
