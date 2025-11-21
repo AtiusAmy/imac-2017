@@ -15,6 +15,7 @@ mv -v /etc/driver_files/* /lib/modules/${KERNEL}
 rm -rf /etc/driver_files
 
 # install the kernel headers
+dnf install -y gcc kernel-devel make patch wget
 
 # dnf5 -y copr disable ublue-os/staging
 #### Example for enabling a System Unit File
