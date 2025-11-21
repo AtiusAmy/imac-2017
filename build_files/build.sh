@@ -14,7 +14,7 @@ KERNEL=$(skopeo inspect --retry-times 3 docker://ghcr.io/atiusamy/bluefin-stable
 ls /etc/driver_files
 dnf5 install -y gcc kernel-devel make patch wget
 
-/bin/bash /etc/driver_files/snd_hda_macbookpro/install.cirrus.driver.sh
+/bin/bash /etc/driver_files/install.cirrus.driver.sh
 
 rm -rf /etc/driver_files
 
