@@ -162,10 +162,10 @@ else
 fi
 
 
-mv $hda_dir/Makefile $hda_dir/Makefile.orig
-mv $hda_dir/common/Makefile $hda_dir/common//Makefile.orig
-mv $hda_dir/codecs/Makefile $hda_dir/codecs//Makefile.orig
-mv $hda_dir/codecs/cirrus/Makefile $hda_dir/codecs/cirrus//Makefile.orig
+# mv $hda_dir/Makefile $hda_dir/Makefile.orig
+#mv $hda_dir/common/Makefile $hda_dir/common//Makefile.orig
+#mv $hda_dir/codecs/Makefile $hda_dir/codecs//Makefile.orig
+#mv $hda_dir/codecs/cirrus/Makefile $hda_dir/codecs/cirrus//Makefile.orig
 
 cp $makefiles_dir/Makefile $hda_dir
 cp $makefiles_dir/Makefile_common $hda_dir/common/Makefile
