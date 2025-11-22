@@ -23,6 +23,30 @@ if [ $major_version -lt 6 -o \( $major_version -eq 6 -a $minor_version -lt 17 \)
 fi
 
 
+if [[ $dkms_action != '' ]]; then
+	echo "WARNING: dkms is untested for 6.17 and likely wont work!!!"
+	exit 1
+fi
+
+sed -i 's/^BUILT_MODULE_NAME\[0\].*$/BUILT_MODULE_NAME[0]="snd-hda-codec-cs8409"/' dkms.conf
+PATCH_CIRRUS=false
+
+if [[ $dkms_action == 'install' ]]; then
+    bash dkms.sh
+    # note that Ubuntu, Debian, Fedora and others (see dkms man page) install to updates/dkms
+    # and ignore DEST_MODULE_LOCATION
+    # we DO want updates so that the original module is not overwritten
+    # (although the original module should be copied to under /var/lib/dkms if needed for other distributions)
+    update_dir="/lib/modules/${UNAME}/updates"
+    echo -e "\ncontents of $update_dir/dkms"
+    ls -lA $update_dir/dkms
+    exit
+elif [[ $dkms_action == 'remove' ]]; then
+    bash dkms.sh -r
+    exit
+fi
+
+
 isdebian=0
 isfedora=0
 isarch=0
@@ -134,7 +158,7 @@ else
 
 	set -e
 
-	tar --strip-components=2 -xvf $build_dir/linux-source-$kernel_version.tar.xz --directory=build/ linux-source-$kernel_version/sound/hda
+	tar --strip-components=2 -xvf $build_dir/linux-$kernel_version.tar.xz --directory=build/ linux-$kernel_version/sound/hda
 
 fi
 
