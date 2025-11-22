@@ -167,10 +167,10 @@ fi
 #mv $hda_dir/codecs/Makefile $hda_dir/codecs//Makefile.orig
 #mv $hda_dir/codecs/cirrus/Makefile $hda_dir/codecs/cirrus//Makefile.orig
 
-cp $makefiles_dir/Makefile $hda_dir
-cp $makefiles_dir/Makefile_common $hda_dir/common/Makefile
-cp $makefiles_dir/Makefile_codecs $hda_dir/codecs/Makefile
-cp $makefiles_dir/Makefile_cirrus $hda_dir/codecs/cirrus/Makefile
+#cp $makefiles_dir/Makefile $hda_dir
+#cp $makefiles_dir/Makefile_common $hda_dir/common/Makefile
+#cp $makefiles_dir/Makefile_codecs $hda_dir/codecs/Makefile
+#cp $makefiles_dir/Makefile_cirrus $hda_dir/codecs/cirrus/Makefile
 
 # going with explicit file names now
 
