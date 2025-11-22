@@ -28,8 +28,7 @@ if [[ $dkms_action != '' ]]; then
 	exit 1
 fi
 
-sed -i 's/^BUILT_MODULE_NAME\[0\].*$/BUILT_MODULE_NAME[0]="snd-hda-codec-cs8409"/' dkms.conf
-PATCH_CIRRUS=false
+
 
 if [[ $dkms_action == 'install' ]]; then
     bash dkms.sh
