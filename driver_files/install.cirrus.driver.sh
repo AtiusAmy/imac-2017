@@ -134,7 +134,7 @@ else
 
 	set -e
 
-	tar --strip-components=2 -xvf $build_dir/linux-$kernel_version.tar.xz --directory=build/ linux-$kernel_version/sound/hda
+	tar --strip-components=2 -xvf $build_dir/linux-source-$kernel_version.tar.xz --directory=build/ linux-source-$kernel_version/sound/hda
 
 fi
 
