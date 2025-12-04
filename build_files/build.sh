@@ -14,7 +14,7 @@ KERNEL=$(skopeo inspect --retry-times 3 docker://ghcr.io/atiusamy/bluefin-stable
 mv -v /etc/driver_files/* /lib/modules/${KERNEL}
 rm -rf /etc/driver_files
 
-
+dnf5 install -y https://github.com/nab138/iloader/releases/latest/download/iloader-linux-x86_64.rpm
 # install the kernel headers
 
 # dnf5 -y copr disable ublue-os/staging
